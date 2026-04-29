@@ -1,1 +1,1 @@
-# Explore_Airbnb
+WanderStay is a production-ready full-stack web application inspired by Airbnb, enabling users to browse stays, publish listings, manage properties, and explore travel destinations seamlessly. Key features include secure authentication, RESTful CRUD functionality, image uploads, session management, responsive UI, and MongoDB cloud integration. Developed using Node.js, Express.js, MongoDB, EJS, Passport.js, Cloudinary, and deployed on Render.
