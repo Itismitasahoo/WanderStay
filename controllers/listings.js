@@ -1,9 +1,22 @@
 const Listing = require("../models/listing");
+const User = require("../models/user");
 const axios = require("axios");
 
 module.exports.index = async (req, res) => {
   const allListings = await Listing.find({});
-  res.render("listings/index.ejs", { allListings });
+
+  let favorites = [];
+
+  if (req.user) {
+    const user = await User.findById(req.user._id);
+
+    favorites = user.favorites.map((fav) => fav.toString());
+  }
+
+  res.render("listings/index.ejs", {
+    allListings,
+    favorites,
+  });
 };
 
 module.exports.renderNewForm = (req, res) => {
@@ -26,7 +39,22 @@ module.exports.showListings = async (req, res) => {
     return res.redirect("/listings");
   }
   console.log(listing);
-  res.render("listings/show.ejs", { listing });
+  // res.render("listings/show.ejs", { listing });
+
+  let isFavorite = false;
+
+  if (req.user) {
+    const user = await User.findById(req.user._id);
+
+    isFavorite = user.favorites.some(
+      (fav) => fav.toString() === listing._id.toString(),
+    );
+  }
+
+  res.render("listings/show.ejs", {
+    listing,
+    isFavorite,
+  });
 };
 
 module.exports.createListing = async (req, res) => {

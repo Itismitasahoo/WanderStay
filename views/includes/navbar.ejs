@@ -86,8 +86,16 @@
         <a class="nav-link" href="/signup"><b>Sign up</b></a>
         <a class="nav-link" href="/login"><b>Log in</b></a>
         <% } %> <% if(currUser) {%>
-        <a class="nav-link" href="/logout"><b>Log out</b></a>
-        <% } %>
+
+<a class="nav-link" href="/listings/favorites">
+  <i class="fa-solid fa-heart"></i> <b>Favorites</b>
+</a>
+
+<a class="nav-link" href="/logout">
+  <b>Log out</b>
+</a>
+
+<% } %>
       </div>
     </div>
   </div>

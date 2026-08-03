@@ -1,0 +1,42 @@
+<% layout("/layouts/boilerplate") %>
+
+<h2 class="mb-4">My Favorite Listings ❤️</h2>
+
+<div class="row">
+
+  <% if(favorites.length === 0){ %>
+    <h4>No favorite listings yet.</h4>
+  <% } %>
+
+  <% favorites.forEach(listing => { %>
+
+    <div class="card col-md-3 m-3">
+
+      <img
+        src="<%= listing.image.url %>"
+        class="card-img-top"
+        style="height:200px; object-fit:cover;"
+      >
+
+      <div class="card-body">
+
+        <h5><%= listing.title %></h5>
+
+        <p>
+          ₹<%= listing.price.toLocaleString("en-IN") %>
+        </p>
+
+        <a
+          href="/listings/<%= listing._id %>"
+          class="btn btn-dark"
+        >
+          View Listing
+        </a>
+
+      </div>
+
+    </div>
+
+  <% }) %>
+
+</div>

@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
 const Listing = require("../models/listing.js");
+const User = require("../models/user.js");
 const {
   isLoggedIn,
   isOwner,
@@ -25,6 +26,50 @@ router
 
 //New Route
 router.get("/new", isLoggedIn, listingController.renderNewForm);
+
+// Favorite Route
+router.post("/:id/favorite", isLoggedIn, async (req, res) => {
+  console.log("Favorite route called");
+  const listingId = req.params.id;
+
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $addToSet: {
+        favorites: listingId,
+      },
+    },
+    { new: true },
+  );
+
+  console.log("Favorites:", user.favorites);
+
+  res.redirect(req.get("Referrer") || "/listings");
+  // res.redirect(`/listings/${listingId}`);
+});
+
+// Unfavorite Route
+router.post("/:id/unfavorite", isLoggedIn, async (req, res) => {
+  console.log("Unfavorite route called");
+  const listingId = req.params.id;
+
+  await User.findByIdAndUpdate(req.user._id, {
+    $pull: {
+      favorites: listingId,
+    },
+  });
+
+  res.redirect(req.get("Referrer") || "/listings");
+  // res.redirect(`/listings/${listingId}`);
+});
+
+router.get("/favorites", isLoggedIn, async (req, res) => {
+  const user = await User.findById(req.user._id).populate("favorites");
+
+  res.render("listings/favorites.ejs", {
+    favorites: user.favorites,
+  });
+});
 
 router
   .route("/:id")
