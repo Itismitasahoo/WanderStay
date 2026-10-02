@@ -3,13 +3,24 @@ const User = require("../models/user");
 const axios = require("axios");
 
 module.exports.index = async (req, res) => {
-  const allListings = await Listing.find({});
+  const { category } = req.query;
+
+  console.log("CATEGORY:", category);
+
+  let allListings;
+
+  if (category) {
+    allListings = await Listing.find({ category: category });
+  } else {
+    allListings = await Listing.find({});
+  }
+
+  console.log("NUMBER OF LISTINGS:", allListings.length);
 
   let favorites = [];
 
   if (req.user) {
     const user = await User.findById(req.user._id);
-
     favorites = user.favorites.map((fav) => fav.toString());
   }
 
@@ -33,6 +44,11 @@ module.exports.showListings = async (req, res) => {
       },
     })
     .populate("owner");
+  if (!listing) {
+    req.flash("error", "Listing you requested for does not exist!");
+    return res.redirect("/listings");
+  }
+
   console.log("OWNER:", listing.owner);
   if (!listing) {
     req.flash("error", "Listing you requested for does not exist!");

@@ -150,3 +150,23 @@ body {
   font-size: 1.5rem;
   margin: auto;
 }
+
+.f-info-credit {
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.heart {
+  color: rgb(221, 24, 24);
+  font-size: 1.1rem;
+}
+
+.f-info-credit a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.f-info-credit a:hover {
+  text-decoration: underline;
+}

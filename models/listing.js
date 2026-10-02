@@ -15,6 +15,10 @@ const listingSchema = new Schema({
   price: Number,
   location: String,
   country: String,
+  category: {
+    type: String,
+    required: true,
+  },
   lat: Number,
   lng: Number,
   reviews: [
