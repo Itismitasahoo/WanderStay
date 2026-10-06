@@ -77,6 +77,8 @@ module.exports.createListing = async (req, res) => {
   try {
     const newListing = new Listing(req.body.listing);
 
+    newListing.owner = req.user._id;
+
     // image (your existing multer/cloudinary flow)
     if (req.file) {
       newListing.image = {
