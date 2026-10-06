@@ -8,7 +8,7 @@ WanderStay is a full-stack web application inspired by Airbnb that enables users
 
 The primary objective of WanderStay is to simulate the core functionality of a real-world accommodation marketplace while following industry-standard web development practices.
 
-The application allows authenticated users to publish property listings, upload images, manage their own listings, write reviews, maintain a personalized favorites collection, and search destinations efficiently. The project is designed with a scalable MVC architecture and integrates cloud services for media storage and database management.
+The application allows authenticated users to publish property listings with categories, upload images, manage their own listings, write reviews, maintain a personalized favorites collection, and search destinations efficiently. Users can also filter listings by categories to quickly discover properties matching their interests. The project is designed with a scalable MVC architecture and integrates cloud services for media storage and database management.
 
 ---
 
@@ -18,6 +18,7 @@ The application allows authenticated users to publish property listings, upload 
 - User registration, login, and session management
 - Create, update, and delete property listings
 - Cloudinary integration for image uploads
+- - Browse listings by categories such as Mountains, Rooms, Castles, Camping, Farms, Arctic, Domes, Boats, and more
 - Destination search functionality
 - Interactive location mapping
 - Add and remove listings from Favorites
@@ -119,7 +120,6 @@ The following improvements are planned for future releases.
 
 - Property booking functionality
 - Payment gateway integration
-- Advanced filtering and sorting
 - User profile dashboard
 - Availability calendar
 - Host analytics
