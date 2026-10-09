@@ -13,10 +13,13 @@
   color: inherit;
 }
 
+
 .listing-link .card-text,
-.listing-link .card-text b{
-  color: black;
+.listing-link .card-text b {
+    color: var(--text-color);
 }
+
+
 
       #filters {
       display: flex;
@@ -54,6 +57,9 @@
         margin-left:2rem ;
         display: flex;
         align-items: center;
+        background-color: var(--card-bg);
+color: var(--text-color);
+border-color: var(--border-color);
       }
 
       .listing-card{
@@ -76,6 +82,14 @@
   cursor:pointer;
   font-size:18px;
   box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+
+html[data-theme="dark"] #filters .filter {
+    color: var(--text-color);
+}
+
+html[data-theme="dark"] #filters .filter:hover {
+    color: var(--text-color);
 }
 
 

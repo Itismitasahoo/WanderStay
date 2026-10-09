@@ -4,7 +4,7 @@
     <h3><%= listing.title %></h3>
 
   </div>
-  <div class="card col-6 offset-2 show-card listing-card">
+  <div class="card col-md-6 offset-md-3 col-10 offset-1 show-card listing-card">
     <img
       src="<%= listing.image.url %>"
       class="card-img-top show-img"
@@ -22,10 +22,6 @@
   </div>
   <br />
 
-  <div class="map-wrapper">
-    <p class="map-text">Location of your destination</p>
-    <div id="map"></div>
-</div>
 
   <% if (currUser && listing.owner?._id?.equals(currUser._id)) { %>
   <div class="btns">
@@ -52,7 +48,13 @@ href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
 
 
-<div id="map" style="height:400px; width:100%; border-radius:15px;"></div>
+
+<div class="row mt-3">
+  <div class="col-8 offset-3">
+    <h5 class="map-text mb-3">Location of Your Destination</h5>
+    <div id="map" style="height:400px; width:100%; border-radius:15px;"></div>
+  </div>
+</div>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

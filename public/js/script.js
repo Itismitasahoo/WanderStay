@@ -21,3 +21,29 @@
     );
   });
 })();
+
+// WanderStay Theme Toggle
+const themeToggle = document.getElementById("themeToggle");
+const savedTheme = localStorage.getItem("wanderstay-theme") || "light";
+
+document.documentElement.setAttribute("data-theme", savedTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    document.documentElement.setAttribute("data-theme", newTheme);
+    if (themeToggle) {
+      themeToggle.innerHTML =
+        savedTheme === "dark"
+          ? '<i class="fa-solid fa-sun"></i>'
+          : '<i class="fa-solid fa-moon"></i>';
+    }
+    localStorage.setItem("wanderstay-theme", newTheme);
+    themeToggle.innerHTML =
+      newTheme === "dark"
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+  });
+}
