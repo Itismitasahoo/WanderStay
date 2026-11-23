@@ -16,18 +16,21 @@ The application allows authenticated users to publish property listings with cat
 
 ## Key Features
 
-- User Authentication: Secure registration, login, and session management using Passport.js.
-- Listing Management: Create, view, edit, and delete property listings.
-- Image Uploads: Upload and manage listing images using Cloudinary.
-- Category-Based Browsing: Explore listings by categories such as Mountains, Rooms, Castles,Camping, Farms, Arctic, Domes, and Boats.
-- Destination Search: Search for listings by destination with suggestions.
-- Interactive Maps: View property locations using mapping services.
-- Favorites: Save listings to a personalized favorites collection and remove them when needed.
-- Reviews and Ratings: Share experiences and rate properties.
-- Authorization: Restrict listing management and other protected actions to authorized users.
-- Light and Dark Mode: Switch between themes with the selected preference saved in the browser.
-- Responsive Design: Browse listings across different screen sizes using Bootstrap.
-- Flash Messages: Receive feedback for important actions and errors.
+## Key Features
+
+- **User Authentication:** Secure registration, login, and session management using Passport.js.
+- **Listing Management:** Create, view, edit, and delete property listings.
+- **Image Uploads:** Upload and manage listing images using Cloudinary.
+- **Category-Based Browsing:** Explore properties across categories such as Rooms, Mountains, Iconic Cities, Castles, Camping, Farms, Arctic, Domes, and Boats.
+- **Destination Search:** Search listings by destination with autocomplete suggestions.
+- **Interactive Maps:** Explore property locations through interactive maps.
+- **Favorites:** Save properties to a personalized favorites list and manage saved listings.
+- **Recently Viewed:** Keep track of recently visited properties and revisit them from a dedicated page.
+- **Reviews and Ratings:** Share experiences and rate properties.
+- **Authorization:** Restrict listing management and protected actions to authorized users.
+- **Light and Dark Mode:** Switch between themes with preferences saved in the browser.
+- **Responsive Design:** Enjoy a responsive interface across devices using Bootstrap.
+- **Flash Messages:** Receive feedback for important actions, errors, and status updates.
 
 ---
 
