@@ -1,0 +1,118 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-4 mb-5">
+  <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+    <h2>
+      <i class="fa-solid fa-clock-rotate-left"></i>
+      Recently Viewed
+    </h2>
+
+    <button
+      id="clear-recently-viewed"
+      class="btn btn-outline-danger"
+      type="button"
+    >
+      <i class="fa-solid fa-trash"></i> Clear History
+    </button>
+  </div>
+
+  <div
+    id="recently-viewed-container"
+    class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4"
+  ></div>
+
+  <div id="empty-recently-viewed" class="text-center mt-5" hidden>
+    <i class="fa-solid fa-clock-rotate-left fa-3x mb-3"></i>
+    <h4>No recently viewed properties</h4>
+    <p>Explore properties and they will appear here.</p>
+
+    <a href="/listings" class="btn btn-dark mt-2"> Explore Properties </a>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const container = document.getElementById("recently-viewed-container");
+    const emptyMessage = document.getElementById("empty-recently-viewed");
+    const clearButton = document.getElementById("clear-recently-viewed");
+
+    const storageKey = "wanderstay-recently-viewed";
+
+    function getRecentlyViewed() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey) || "[]");
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function renderRecentlyViewed() {
+      const properties = getRecentlyViewed();
+
+      container.innerHTML = "";
+
+      if (properties.length === 0) {
+        emptyMessage.hidden = false;
+        clearButton.hidden = true;
+        return;
+      }
+
+      emptyMessage.hidden = true;
+      clearButton.hidden = false;
+
+      properties.forEach((property) => {
+        const column = document.createElement("div");
+        column.className = "col";
+
+        const card = document.createElement("div");
+        card.className = "card listing-card h-100";
+
+        const link = document.createElement("a");
+        link.href = property.url;
+        link.className = "listing-link";
+
+        const image = document.createElement("img");
+        image.src = property.image;
+        image.alt = property.title;
+        image.className = "card-img-top";
+        image.style.height = "20rem";
+        image.style.objectFit = "cover";
+
+        const body = document.createElement("div");
+        body.className = "card-body";
+
+        const title = document.createElement("h5");
+        title.className = "card-text";
+        title.textContent = property.title;
+
+        const price = document.createElement("p");
+        price.className = "card-text";
+        price.textContent =
+          "₹" + Number(property.price).toLocaleString("en-IN") + "/night";
+
+        body.appendChild(title);
+        body.appendChild(price);
+
+        link.appendChild(image);
+        link.appendChild(body);
+
+        card.appendChild(link);
+        column.appendChild(card);
+        container.appendChild(column);
+      });
+    }
+
+    clearButton.addEventListener("click", () => {
+      const confirmed = confirm(
+        "Are you sure you want to clear your recently viewed history?",
+      );
+
+      if (!confirmed) return;
+
+      localStorage.removeItem(storageKey);
+      renderRecentlyViewed();
+    });
+
+    renderRecentlyViewed();
+  })();
+</script>

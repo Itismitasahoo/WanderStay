@@ -71,6 +71,11 @@ router.get("/favorites", isLoggedIn, async (req, res) => {
   });
 });
 
+// Recently Viewed Route
+router.get("/recently-viewed", (req, res) => {
+  res.render("listings/recentlyViewed.ejs");
+});
+
 router
   .route("/:id")
   .get(wrapAsync(listingController.showListings))
