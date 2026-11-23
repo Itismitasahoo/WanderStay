@@ -47,3 +47,37 @@ if (themeToggle) {
         : '<i class="fa-solid fa-moon"></i>';
   });
 }
+
+// WanderStay - Recently Viewed Properties
+(() => {
+  const listing = document.getElementById("recently-viewed-listing");
+
+  if (!listing) return;
+
+  const property = {
+    id: listing.dataset.id,
+    title: listing.dataset.title,
+    image: listing.dataset.image,
+    price: Number(listing.dataset.price),
+    url: listing.dataset.url,
+    viewedAt: Date.now(),
+  };
+
+  let recentlyViewed = JSON.parse(
+    localStorage.getItem("wanderstay-recently-viewed") || "[]",
+  );
+
+  // Remove duplicate entries
+  recentlyViewed = recentlyViewed.filter((item) => item.id !== property.id);
+
+  // Add the current property to the beginning
+  recentlyViewed.unshift(property);
+
+  // Keep only the latest 8 properties
+  recentlyViewed = recentlyViewed.slice(0, 8);
+
+  localStorage.setItem(
+    "wanderstay-recently-viewed",
+    JSON.stringify(recentlyViewed),
+  );
+})();
