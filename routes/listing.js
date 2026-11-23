@@ -76,6 +76,10 @@ router.get("/recently-viewed", (req, res) => {
   res.render("listings/recentlyViewed.ejs");
 });
 
+router.get("/recentlyViewed", (req, res) => {
+  res.render("listings/recentlyViewed.ejs");
+});
+
 router
   .route("/:id")
   .get(wrapAsync(listingController.showListings))
