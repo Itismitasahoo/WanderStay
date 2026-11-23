@@ -1,6 +1,8 @@
 # WanderStay
 
-WanderStay is a full-stack web application inspired by Airbnb that enables users to discover, create, and manage property listings through a secure and user-friendly platform. The application incorporates authentication, image management, location mapping, reviews, and personalized favorites to deliver a modern accommodation booking experience.
+WanderStay is a full-stack accommodation listing platform inspired by Airbnb. It allows users to discover, create, and manage property listings through a responsive and user-friendly interface. The application features secure authentication, cloud-based image uploads, interactive maps, reviews, favorites, and destination search.
+
+🔗 Live Demo: https://wanderstay-h7ql.onrender.com/listings
 
 ---
 
@@ -14,18 +16,18 @@ The application allows authenticated users to publish property listings with cat
 
 ## Key Features
 
-- Secure user authentication using Passport.js
-- User registration, login, and session management
-- Create, update, and delete property listings
-- Cloudinary integration for image uploads
-- - Browse listings by categories such as Mountains, Rooms, Castles, Camping, Farms, Arctic, Domes, Boats, and more
-- Destination search functionality
-- Interactive location mapping
-- Add and remove listings from Favorites
-- Review and rating system
-- Authorization for listing ownership
-- Responsive user interface using Bootstrap
-- Flash messaging for user feedback
+- User Authentication: Secure registration, login, and session management using Passport.js.
+- Listing Management: Create, view, edit, and delete property listings.
+- Image Uploads: Upload and manage listing images using Cloudinary.
+- Category-Based Browsing: Explore listings by categories such as Mountains, Rooms, Castles,Camping, Farms, Arctic, Domes, and Boats.
+- Destination Search: Search for listings by destination with suggestions.
+- Interactive Maps: View property locations using mapping services.
+- Favorites: Save listings to a personalized favorites collection and remove them when needed.
+- Reviews and Ratings: Share experiences and rate properties.
+- Authorization: Restrict listing management and other protected actions to authorized users.
+- Light and Dark Mode: Switch between themes with the selected preference saved in the browser.
+- Responsive Design: Browse listings across different screen sizes using Bootstrap.
+- Flash Messages: Receive feedback for important actions and errors.
 
 ---
 
@@ -124,8 +126,6 @@ The following improvements are planned for future releases.
 - Availability calendar
 - Host analytics
 - Notification system
-- Dark mode support
-
 ---
 
 ## Author
